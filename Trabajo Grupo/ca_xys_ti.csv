@@ -1,0 +1,20 @@
+name,codigo,nombre,name.1,ti
+AN,ES-AN,Andalucía,AN,0.5822146096708006
+AR,ES-AR,Aragón,AR,0.8055765770626164
+AS,ES-AS,"Asturias, Principado de",AS,0.03485316543459027
+CN,ES-CN,Canarias,CN,0.6428665558494658
+CB,ES-CB,Cantabria,CB,0.9904241014792806
+CM,ES-CM,Castilla La Mancha ! Castilla-La Mancha,CM,0.14936643885724843
+CL,ES-CL,Castilla y León,CL,0.9273009116384641
+CT,ES-CT,Catalunya (ca) [Cataluña],CT,0.5323320990163114
+EX,ES-EX,Extremadura,EX,0.4163747781906576
+GA,ES-GA,Galicia (gl) [Galicia],GA,0.4030490669102752
+IB,ES-IB,Illes Balears (ca) [Islas Baleares],IB,0.9643875907605233
+RI,ES-RI,La Rioja,RI,0.6493262977838877
+MD,ES-MD,"Madrid, Comunidad de",MD,0.01084466119066485
+MC,ES-MC,"Murcia, Región de",MC,0.31557833402663527
+NC,ES-NC,"Navarra, Comunidad Foral de Nafarroako Foru Komunitatea (eu)",NC,0.9440607343928848
+PV,ES-PV,País Vasco Euskal Herria (eu),PV,0.3272165265082908
+VC,ES-VC,"Valenciana, Comunidad Valenciana, Comunitat (ca)",VC,0.9544297769083665
+CE,ES-CE,Ceuta,CE,0.731862299777528
+ML,ES-ML,Melilla,ML,0.9249662479198307
