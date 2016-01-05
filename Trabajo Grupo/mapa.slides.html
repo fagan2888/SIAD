@@ -4420,9 +4420,9 @@ plt.savefig('4.png', bbox_inches='tight')
 <li>$y_i$: Coordenada eje y (Latitud, decimal).</li>
 <li><strong>$t_j$: Impuesto por unidad vendida.</strong> j={1-16}</li>
 <li>$n_1$ y $n_2$: Defecto respecto del objetivo.</li>
-<li>$p_1$ y $p_2$: Exceso respecto del objetivo.
-<strong>Variables de decisión (Coordenadas):</strong> $x_0, y_0$ </li>
+<li>$p_1$ y $p_2$: Exceso respecto del objetivo.</li>
 </ul>
+<p><strong>Variables de decisión (Coordenadas):</strong> $x_0, y_0$</p>
 
 </div>
 </div>
@@ -4435,11 +4435,11 @@ plt.savefig('4.png', bbox_inches='tight')
 <div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">Dp1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="p">(</span><span class="n">impuesto_ca</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.2</span>
-<span class="n">Dp2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="p">(</span><span class="n">func_obj1</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2000000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2000000</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">D1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="p">(</span><span class="n">impuesto_ca</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.2</span>
+<span class="n">D2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="p">(</span><span class="n">func_obj1</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2000000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2000000</span>
 
 <span class="k">def</span> <span class="nf">fobj3</span><span class="p">(</span><span class="n">yx</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">Dp1</span><span class="p">(</span><span class="n">yx</span><span class="p">),</span><span class="n">Dp2</span><span class="p">(</span><span class="n">yx</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">D1</span><span class="p">(</span><span class="n">yx</span><span class="p">),</span><span class="n">D2</span><span class="p">(</span><span class="n">yx</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -4514,7 +4514,7 @@ plt.savefig('4.png', bbox_inches='tight')
 <div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">Dp1</span><span class="p">(</span><span class="n">_</span><span class="p">),</span> <span class="n">Dp2</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">D1</span><span class="p">(</span><span class="n">_</span><span class="p">),</span> <span class="n">D2</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -4541,13 +4541,13 @@ plt.savefig('4.png', bbox_inches='tight')
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">res_3</span><span class="p">(</span><span class="n">yx</span><span class="p">):</span>
     <span class="n">ca</span> <span class="o">=</span> <span class="n">xys_ca</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span>
     <span class="n">ti</span> <span class="o">=</span> <span class="n">impuesto_ca</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span>
-    <span class="n">fo</span> <span class="o">=</span> <span class="n">func_obj1</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">wi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span>
+    <span class="n">fo</span> <span class="o">=</span> <span class="n">func_obj1</span><span class="p">(</span><span class="n">yx</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">ti</span><span class="p">)</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;# RESULTADO</span><span class="se">\n</span><span class="s">- __LAT:__ %s</span><span class="se">\n</span><span class="s">- __LONG:__ %s</span><span class="se">\n</span><span class="s">- __CCAA:__ %s</span><span class="se">\n</span><span class="s">- __ti:__ %s</span><span class="se">\n</span><span class="s">- __FUNC. OBJ.:__ %s&#39;</span>
     <span class="k">return</span> <span class="n">Markdown</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="o">*</span><span class="n">yx</span><span class="p">,</span> <span class="n">ca</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">fo</span><span class="p">))</span>
 </pre></div>
@@ -4557,13 +4557,11 @@ plt.savefig('4.png', bbox_inches='tight')
 </div>
 
 </div>
-    </div></section>
-    </section><section>
-    <section>
+    </div></section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">res_3</span><span class="p">(</span><span class="n">res3</span><span class="p">)</span>
@@ -4577,7 +4575,7 @@ plt.savefig('4.png', bbox_inches='tight')
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[68]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[84]:</div>
 
 <div class="output_markdown rendered_html output_subarea output_execute_result">
 <h1 id="RESULTADO">RESULTADO<a class="anchor-link" href="#RESULTADO">&#182;</a></h1><ul>
@@ -4585,9 +4583,75 @@ plt.savefig('4.png', bbox_inches='tight')
 <li><strong>LONG:</strong> -2.59956089068</li>
 <li><strong>CCAA:</strong> CM</li>
 <li><strong>ti:</strong> 0.149366438857</li>
-<li><strong>FUNC. OBJ.:</strong> 1482480.55662</li>
+<li><strong>FUNC. OBJ.:</strong> 1702859.91867</li>
 </ul>
 
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">pd_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;resultados.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pd_res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s">&#39;res3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">res3</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">func_obj2</span><span class="p">(</span><span class="n">res3</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xys_ca</span><span class="p">(</span><span class="n">res3</span><span class="p">)]</span>
+<span class="n">Markdown</span><span class="p">(</span><span class="s">&#39;# RESÚMEN</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> <span class="n">pd_res</span><span class="o">.</span><span class="n">to_html</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[80]:</div>
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<h1 id="RES&#218;MEN">RES&#218;MEN<a class="anchor-link" href="#RES&#218;MEN">&#182;</a></h1><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>fun_obj</th>
+      <th>ccaa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>res1</th>
+      <td>42.301562</td>
+      <td>-2.437683</td>
+      <td>1312334.971653</td>
+      <td>RI</td>
+    </tr>
+    <tr>
+      <th>res2</th>
+      <td>41.170716</td>
+      <td>-3.514011</td>
+      <td>1562079.962388</td>
+      <td>MD</td>
+    </tr>
+    <tr>
+      <th>res3</th>
+      <td>41.177927</td>
+      <td>-2.599561</td>
+      <td>1702859.918670</td>
+      <td>CM</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 </div>
@@ -5520,6 +5584,117 @@ kAMAAHzp/wFSaIb4TyNJsgAAAABJRU5ErkJggg==
 
 </div>
 </div>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">di1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="n">vincenty</span><span class="p">(</span><span class="n">yx</span><span class="p">,</span> <span class="n">res1</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="n">di2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="n">vincenty</span><span class="p">(</span><span class="n">yx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="n">di3</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="n">vincenty</span><span class="p">(</span><span class="n">yx</span><span class="p">,</span> <span class="n">res3</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+
+<span class="n">data_clientes</span><span class="p">[</span><span class="s">&#39;dist1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_clientes</span><span class="p">[[</span><span class="s">&#39;lat&#39;</span><span class="p">,</span> <span class="s">&#39;lng&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">di1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_clientes</span><span class="p">[</span><span class="s">&#39;dist2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_clientes</span><span class="p">[[</span><span class="s">&#39;lat&#39;</span><span class="p">,</span> <span class="s">&#39;lng&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">di2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_clientes</span><span class="p">[</span><span class="s">&#39;dist3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_clientes</span><span class="p">[[</span><span class="s">&#39;lat&#39;</span><span class="p">,</span> <span class="s">&#39;lng&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">di3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">data_clientes</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[75]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>prov</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>dist1</th>
+      <th>dist2</th>
+      <th>dist3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cliente1</th>
+      <td>zaragoza</td>
+      <td>41.648823</td>
+      <td>-0.889085</td>
+      <td>147.410125</td>
+      <td>225.796998</td>
+      <td>152.267769</td>
+    </tr>
+    <tr>
+      <th>cliente2</th>
+      <td>oviedo</td>
+      <td>43.361915</td>
+      <td>-5.849389</td>
+      <td>302.771967</td>
+      <td>310.400117</td>
+      <td>361.518719</td>
+    </tr>
+    <tr>
+      <th>cliente3</th>
+      <td>huesca</td>
+      <td>42.131845</td>
+      <td>-0.407806</td>
+      <td>168.657816</td>
+      <td>279.884499</td>
+      <td>211.071530</td>
+    </tr>
+    <tr>
+      <th>cliente4</th>
+      <td>madrid</td>
+      <td>40.416775</td>
+      <td>-3.703790</td>
+      <td>234.601556</td>
+      <td>85.243187</td>
+      <td>125.810111</td>
+    </tr>
+    <tr>
+      <th>cliente5</th>
+      <td>bilbao</td>
+      <td>43.263013</td>
+      <td>-2.934985</td>
+      <td>114.295030</td>
+      <td>237.271861</td>
+      <td>233.255546</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section>
     </section><section>
     <section>
@@ -5574,109 +5749,6 @@ kAMAAHzp/wFSaIb4TyNJsgAAAABJRU5ErkJggg==
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">di1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="n">vincenty</span><span class="p">(</span><span class="n">yx</span><span class="p">,</span> <span class="n">res1</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
-<span class="n">di2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">yx</span><span class="p">:</span> <span class="n">vincenty</span><span class="p">(</span><span class="n">yx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
-
-<span class="n">data_clientes</span><span class="p">[</span><span class="s">&#39;dist1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_clientes</span><span class="p">[[</span><span class="s">&#39;lat&#39;</span><span class="p">,</span> <span class="s">&#39;lng&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">di1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data_clientes</span><span class="p">[</span><span class="s">&#39;dist2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_clientes</span><span class="p">[[</span><span class="s">&#39;lat&#39;</span><span class="p">,</span> <span class="s">&#39;lng&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">di2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">data_clientes</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[71]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>prov</th>
-      <th>lat</th>
-      <th>lng</th>
-      <th>dist1</th>
-      <th>dist2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>cliente1</th>
-      <td>zaragoza</td>
-      <td>41.648823</td>
-      <td>-0.889085</td>
-      <td>147.410125</td>
-      <td>225.796998</td>
-    </tr>
-    <tr>
-      <th>cliente2</th>
-      <td>oviedo</td>
-      <td>43.361915</td>
-      <td>-5.849389</td>
-      <td>302.771967</td>
-      <td>310.400117</td>
-    </tr>
-    <tr>
-      <th>cliente3</th>
-      <td>huesca</td>
-      <td>42.131845</td>
-      <td>-0.407806</td>
-      <td>168.657816</td>
-      <td>279.884499</td>
-    </tr>
-    <tr>
-      <th>cliente4</th>
-      <td>madrid</td>
-      <td>40.416775</td>
-      <td>-3.703790</td>
-      <td>234.601556</td>
-      <td>85.243187</td>
-    </tr>
-    <tr>
-      <th>cliente5</th>
-      <td>bilbao</td>
-      <td>43.263013</td>
-      <td>-2.934985</td>
-      <td>114.295030</td>
-      <td>237.271861</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -5703,7 +5775,7 @@ kAMAAHzp/wFSaIb4TyNJsgAAAABJRU5ErkJggg==
 <h1 id="LIMITACIONES-Y-AMPLIACIONES">LIMITACIONES Y AMPLIACIONES<a class="anchor-link" href="#LIMITACIONES-Y-AMPLIACIONES">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="119">
+</div><div class="fragment" data-fragment-index="120">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
